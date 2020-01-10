@@ -8,6 +8,7 @@ class Game extends React.Component {
     super(props);
 
     this.state = {
+      aestheticTime: undefined,
       time: undefined,
       pancakes: [],
       cooked: 0,
@@ -17,9 +18,18 @@ class Game extends React.Component {
   }
 
   // TODO: create a componentDidMount() which will set the current time
+  componentDidMount() {
+    this.setCurrentTime();
+    // this.setCurrentTime2()
+  }
   
   setCurrentTime = () => {
     this.setState({ time: new Date(Date.now())});
+  }
+
+  setCurrentTime2 = () => {
+    let time = Date(Date.now()).split(" ")[4]
+    this.setState({ aestheticTime: time});
   }
 
   addPancake = () => {
